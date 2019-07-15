@@ -1,0 +1,136 @@
+:root {
+  --color-orange: #ff9933;
+  --color-green: #004d00;
+  --background-color: #1e1e1e;
+  --tooltip-color: gray;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: box-border;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  background-color: var(--background-color);
+  color: white;
+}
+
+#navbar{
+  background-color: var(--color-orange);
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#navbar ul{
+  list-style: none;
+}
+
+#navbar li{
+  display: inline-block;
+  margin: 5px 25px;
+  @media screen and (max-width: 400px) {
+    margin: 3px 5px;
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: color 400ms ease-out;
+  @media screen and (max-width: 700px) {
+    font-size: 1em;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 0.8em;
+  }
+}
+
+.nav-link:hover {
+  color: var(--color-green);
+}
+
+// bars underneath the selected links
+nav a::after{
+  content:'';
+  display: block;
+  height: 4px;
+  background-color: white;
+  position: relative;
+  bottom: -5px;
+  width: 0%;
+  transition: all ease-in-out 150ms;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+#title{
+  margin-top: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#description{
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+#treeMap{
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+}
+
+#tooltip {
+  padding: 8px;
+  background: var(--tooltip-color);
+  border-radius: 2px;
+  color: white;
+  font-size: 11px;
+  text-align: left;
+  pointer-events: none;
+}
+
+/* Creates a small triangle extender for the tooltip */
+#tooltip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: var(--tooltip-color);
+  position: absolute;
+  pointer-events: none;
+  content: "\25BC";
+  text-align: center;
+  margin: -3px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+#footer{
+  margin: 15px;
+  font-size: 0.95em;
+  text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+  #title {
+    font-size: 0.9em;
+  }
+  #description {
+    font-size: 0.7em;
+  }
+  #footer {
+    font-size: 0.6em;
+  }
+}
